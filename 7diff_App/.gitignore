@@ -1,0 +1,8 @@
+#ignoring .vscode folder but we keep some files for debuging
+/.vscode/
+/.vs/
+/.idea/
+imageDifferences.bmp
+imageDifferences2.bmp
+tests4
+/three.js/

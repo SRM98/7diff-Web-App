@@ -1,0 +1,50 @@
+::ng-deep .mat-form-field .mat-form-field-infix {
+    height:1px;
+    width:140px;
+  }
+
+  .mat-form-field-wrapper{
+    height:1px;
+    width:140px;
+  }
+
+  .mat-select{
+    font-size:0.8em;
+    width:140px;
+  }
+
+  .form-group{
+    line-height: 0.9;	
+  }
+
+  li {
+    list-style-type: none;	
+  }
+
+  .modifications{
+    font-size: 0.7em;
+  }
+  	
+  h3{
+    font-size: 1em;
+  }
+  	
+  .form-control{
+    width:140px;
+  }	
+  	
+  .invalid-feedback{
+  	
+    color: red;
+  }	
+
+  .buttonArea {
+    display: grid;
+    margin-top: 20px;	
+    grid-template-columns: [column_1] 80px [column_2] auto [column_end];
+  }
+  	
+  .popUp {
+    font-family: 'Lato', sans-serif;	
+    line-height: 15px;
+  }

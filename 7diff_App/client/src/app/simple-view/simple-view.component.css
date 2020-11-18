@@ -1,0 +1,13 @@
+.popUp {
+  font-family: 'Lato', sans-serif;
+}
+
+.buttonArea {
+  display: grid;
+  margin-top: 50px;
+  grid-template-columns: [column_1] 80px [column_2] auto [column_end];
+}
+
+.invalid-feedback{
+  color: red;
+}

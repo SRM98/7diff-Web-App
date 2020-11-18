@@ -1,0 +1,79 @@
+::ng-deep :root {
+    --orange : #F45E18;
+    --green: #2F6311;
+
+    --light-orange: #fe9920;
+    --light-green : #8dbc45;
+}	
+
+#detail {
+    height: 100%;
+    width: 100%;
+    background-color: var(--light-green);
+    border-radius: 25px;
+}
+
+#titre {
+    width: 100%;
+    text-align: center;
+    font-family: 'Major Mono Display', monospace;
+    color: white;
+    font-size: large;
+    padding-top: 2%;
+}
+
+.type {
+    width : 33%;
+    float: left;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.emptyCase {
+    width: 20%;
+    float: left;
+    background-color: transparent;
+    color: transparent;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.positionList {
+    max-width: 6%;
+    float: left;
+}
+
+.position {
+    width: 6%;
+    text-align: center;
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+
+.info {
+    width: 40%;
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: smaller;
+    padding-left: 8.5em;
+}
+
+.info2 {
+    width: 53%;
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: smaller;
+    padding-left: 5em;
+}
+
+.divider {
+    max-width: 40%;
+    word-break: break-word;
+    float: left;
+}
+
+.top3 {
+    height: 60%;
+    width: 100%;
+    overflow: hidden;
+}

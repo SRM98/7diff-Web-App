@@ -1,0 +1,53 @@
+<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+
+<div #gameView id = "gameView">
+
+  <div class = "verticalSection" >
+    <div id = "logo"></div>
+    <div class = "gameTitle" >{{game.name}}</div>
+    <div class = "differenceCount" id = "playerOneDifferenceCount">{{playerOne.name}} : {{playerOne.numDifferencesFound}}</div>
+    <div *ngIf = "arrayPopUps[7]" class = "differenceCount" id = "playerTwoDifferenceCount">{{playerTwo.name}} : {{playerTwo.numDifferencesFound}}</div>
+    <div class = "timer" id = "gameTimer"> {{chronoService.display}}</div>
+    <div class = "returnButton"(click)="leaveGame()"> Retour </div>
+    <div class = "textBox" id = "textBox"></div>
+  </div>
+
+
+  <div class = "playSection" id="playSection">
+    <div class = "header">Partie {{gameType}} en {{game.POV}}</div>
+    <div class = "imageArea">
+      <img #originalImageDisplay (click)="arrayPopUps[5] ? clickedOriginal($event) : null" alt = "Image" style="border: thin solid black" class = "gameImage" id = "originalImageDisplay" src = {{game.originalImg}}>
+      <div class="gameCover" *ngIf="arrayPopUps[6]" id = "firstImageCover">
+        <div class = "spinner">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class = "imageArea">
+      <img #modifiedImageDisplay (click)="arrayPopUps[5] ? clickedModified($event) : null" alt = "Image" style="border: thin solid black" class = "gameImage" id = "modifiedImageDisplay" [src] =game.modifiedGameImg/>
+      <div class="gameCover" *ngIf="arrayPopUps[6]" id = "secondImageCover">
+        <div class = "spinner">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div #popupWin *ngIf="arrayPopUps[0]" class = "popUpGame" id = "gameWin"> Victoire ! Vous allez être envoyé vers le menu principal
+    <div class = "buttonOk" id = "buttonOk" (click)="leaveGame()">Ok</div>
+</div>
+
+<div #popupLose *ngIf="arrayPopUps[1]" class = "popUpGame" id = "gameLose"> Défaite ! Vous allez être envoyé vers le menu principal
+  <div class = "buttonOk" id = "buttonOk" (click)="leaveGame()">Ok</div>
+</div>
+<div #popupError *ngIf="arrayPopUps[4]" class = "popUp" id = "errorMessage">ERREUR
+</div>
+<div #popUpLeave *ngIf="arrayPopUps[2]" class = "popUpGame" id = "leaveGame"> Ce jeu a été supprimé! Vous allez être ramenés à la page d'accueil.
+  <div class = "buttonOk" id = "buttonOk" (click)="leaveGame()">Ok</div>
+</div>
+<div #popUpOppHasLeft *ngIf="arrayPopUps[3]" class = "popUpGame" id = "leaveGame"> Votre adversaire a quitté! Vous allez être ramenés à la page d'accueil.
+    <div class = "buttonOk" id = "buttonOk" (click)="leaveGame()">Ok</div>
+  </div>
+

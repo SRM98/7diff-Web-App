@@ -1,0 +1,30 @@
+<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+
+<div id = "detail">
+    <div id = "titre"> Top 3 </div>
+    <div class = "emptyCase">placeholder</div>
+    <div class = "type"> Solo </div>
+    <div class = "type"> 1VS1 </div>
+
+    <div class = "top3">
+        <div class = "positionList">
+            <tr *ngFor="let score of game.hsSolo, let i=index" class = "position"> 
+                <div *ngIf="i<3" class = "position" > {{i+1}} </div>
+            </tr>
+        </div>
+                
+        <div class = "divider">
+            <tr *ngFor="let score of game.hsSolo, let i=index" class = "info" >
+                <div *ngIf="i<3" class = "info" > {{score.timeString}} {{score.user}} </div>
+            </tr>
+        </div>
+            
+        <div class = "divider">
+            <tr *ngFor="let score of game.hs1VS1, let i=index" class = "info2" >
+                <div *ngIf="i<3" class = "info2" > {{score.timeString}} {{score.user}} </div>
+            </tr>
+        </div>      
+    </div>
+</div>
+
+

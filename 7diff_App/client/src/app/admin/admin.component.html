@@ -1,0 +1,60 @@
+<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+<app-header></app-header>
+<div id = "adminView">
+    <div class = "horizontalBar">
+        <div class = "buttonCreation" (click)="openSimpleView()" >Créer une vue simple </div>
+        <div class = "buttonCreation" (click)="openFreeView()">Créer une vue libre</div>
+    </div>
+  <h1> Admin </h1> 
+  
+  <div class = "listOfGames">
+    <div id = "displayList">
+      <div class = "divideView">
+          <h1> Vue simple </h1>
+          <th *ngFor = "let game of simpleGames">
+              <div class = "cardGame">
+                <div class = "cardGame-inner">
+                  <div class = "cardGame-front">
+                    <div class = "titleGame"> {{game.name}} </div>
+                    <img alt="Image" class = "thumbnailGame" src={{game.thumbnail}}> 
+                  </div>
+                  <div class = "cardGame-back">
+                    <app-game-detail [game]=game> </app-game-detail>
+                  </div>
+                </div>
+              </div>
+              <div class = "buttonOption" (click)="confirmAction(game, 0)">Supprimer</div> 
+              <div class = "buttonOption"(click)="confirmAction(game, 1)">Réinitialiser</div>         
+          </th>
+      </div>
+      <div class = "divideView">
+          <h1> Vue libre </h1>
+          <th *ngFor = "let game of freeGames">
+              <div class = "cardGame">
+                <div class = "cardGame-inner">
+                  <div class = "cardGame-front">
+                    <div class = "titleGame"> {{game.name}} </div>
+                    <img alt="Image" class = "thumbnailGame" src={{game.thumbnail}}> 
+                  </div>
+                  <div class = "cardGame-back">
+                    <app-game-detail [game]=game> </app-game-detail>
+                  </div>
+                </div>
+              </div>
+              <div class = "buttonOption" (click)="confirmAction(game, 0)">Supprimer</div> 
+              <div class = "buttonOption"(click)="confirmAction(game, 1)">Réinitialiser</div>         
+          </th>
+      </div>
+    </div>
+    <div class = "popUp" *ngIf= "popUpArrays[0]"id = "confirmDelete">Êtes-vous sûrs de vouloir supprimer ce jeu?
+      <div class = "confirmButton" (click) = "deleteGame()"> Confirmer </div>
+      <div class = "buttonX" (click)="hidePopUp(0)">x</div>
+    </div>
+    <div class = "popUp" *ngIf= "popUpArrays[1]" id = "confirmReset">Êtes-vous sûrs de vouloir réinitialiser les scores?
+      <div class = "confirmButton" (click) = "resetHighScores()"> Confirmer </div>
+      <div class = "buttonX" (click)="hidePopUp(1)">x</div>
+    </div>
+    <div class = "popUp" *ngIf= "popUpArrays[2]" id = "errorMessage"> Votre photo de contient pas 7 différences
+      <div class = "buttonX" (click)="hidePopUp(2)">x</div>
+    </div>
+</div>

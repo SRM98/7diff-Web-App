@@ -1,0 +1,241 @@
+::ng-deep :root {
+  --orange : #F45E18;
+  --green: #2F6311;
+
+  --light-orange: #fe9920;
+  --light-green : #8dbc45;
+}
+
+#gameView {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin-top: 0;
+  height:100%;
+  width: 100%;
+  background-color: white;
+}
+
+.verticalSection {
+  background-color: var(--orange);
+  height: 100%;
+  max-height: 1080px;
+  position: relative;
+}
+
+#logo {
+  height: 5em;
+  width: 5em;
+  border-radius: 50%;
+  background-color: white;
+  background-image:  url("../header/assets/logo.png");
+  border: solid 1px var(--green);
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-bottom: 15%;
+}
+
+.gameTitle {
+  color: white;
+  width: 100%;
+  margin: 3%;
+  font-size: 150%;
+  font-family: 'Major Mono Display', monospace;
+}
+
+.differenceCount {
+  color: white;
+  margin: 8%;
+  width: 96%;
+  font-size: 100%;
+  font-family: 'Major Mono Display', monospace;
+}
+
+.timer {
+  color: white;
+  width: 100%;
+  margin: 15%;
+  font-size: 200%;
+  font-family: 'Major Mono Display', monospace;
+}
+
+.returnButton {
+  margin-left: .75em;
+  margin-right: .5em;
+  margin-top: 1em;
+  width: 8em;
+  height: 1.7em;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  transition: 0.3s;
+  padding-top: .5em;
+  padding-bottom: .3em;
+  font-family: 'Major Mono Display', monospace;
+}
+
+.returnButton:hover {
+  cursor: pointer;
+  background-color : var(--light-orange);
+}
+
+
+.returnButton:active {
+  cursor: pointer;
+  background-color : var(--light-orange);
+}
+
+.textBox {
+  background-color: var(--light-orange);
+  overflow-y: auto;
+  word-break: break-all;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 96%;
+  height: 30%;
+  position: absolute;
+  bottom: 1%;
+}
+
+:host ::ng-deep .systemMessage {
+  float: left;
+  color: white;
+  background-color: var(--light-orange);
+  margin-top: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 94%;
+}
+
+.playSection {
+  display: grid;
+  grid-template-columns:[start_column] 50% [middle_section] 50% [end_column];
+  grid-template-rows: 20% 50% 10%;
+}
+
+.header {
+  grid-column-start: start_column;
+  grid-column-end: end_column;
+  z-index: 1;
+  width: 80%;
+  height: 7%;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  padding-left: 19%;
+  font-size: 200%;
+  font-family: 'Major Mono Display', monospace;
+}
+
+.imageArea {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  width: 95%;
+  position: relative;
+}
+
+.gameImage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* height: 480px; */
+}
+
+.gameCover {
+  width: 102%;
+  height: 102%;
+  position: absolute;
+  min-height: 10em;
+  background: #fe9920;
+  /* height: 480px; */
+}
+
+.popUp {
+  display: block;
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  background-color: white;
+  text-align: center;
+  align-items:center;
+  font-size:90%;
+  color:red;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+.popUpGame {
+  position: absolute;
+  height: 12.5%;
+  width: 25%;
+  background-color: white;
+  text-align: center;
+  padding-top: 3.5%;
+  top: 35.5%;
+  left: 45%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.buttonOk {
+  position: absolute;
+  height: 25px;
+  width: 100px;
+  background-color: var(--orange);
+  color: white;
+  text-align : center;
+  top: 75%;
+  left: 35%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.buttonOk:hover {
+  cursor: pointer;
+  background-color: var(--light-orange);
+}
+
+.spinner {
+  position: absolute;
+  left: 47%;
+  top: 40%;
+  display: block;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

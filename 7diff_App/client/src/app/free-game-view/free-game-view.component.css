@@ -1,0 +1,30 @@
+@import '../game-view/game-view.component.css';
+
+.playSection {
+  display: grid;
+  grid-template-columns:[start_column] 50% [middle_section] 50% [end_column];
+  grid-template-rows: 9%;
+}
+
+#sceneCover {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    background: #fe9920;
+}
+
+.activeCheatMode{
+  margin-top: 1em;
+  width: 90%;
+  margin-left:5%;
+  margin-right: 5%;
+  height: 2em;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  transition: 0.3s;
+  padding-top: .5em;
+  padding-bottom: .3em;
+  font-family: 'Major Mono Display', monospace;
+  background-color: #8dbc45;
+}

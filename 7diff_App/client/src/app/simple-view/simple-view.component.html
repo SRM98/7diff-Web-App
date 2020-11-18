@@ -1,0 +1,40 @@
+
+<div class="popUp">
+  <h1>
+    Créer un jeu point de vue simple
+  </h1>
+  <span>Format d'image : bitmap 24-bit (640x480)</span>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" action="/api/image" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <h3>Nom du jeu</h3>
+
+        <input type="text"  formControlName="gameName" class="form-control" [ngClass]="{ 'is-invalid': isFormSubmitted && form.gameName.errors }" />
+        <div *ngIf="isFormSubmitted && form.gameName.errors" class="invalid-feedback">
+          <div *ngIf="form.gameName.errors.required" >Le nom du jeu est nécessaire.</div>
+          <div *ngIf="form.gameName.errors.minlength">Le nom du jeu doit avoir au moins 4 caractères.</div>
+          <div *ngIf="form.gameName.errors.maxlength">Le nom du jeu doit avoir moins de 12 caractères.</div>
+        </div>
+        <h3>Image originale</h3>
+        <input type = "file" formControlName="originalFile" accept=".bmp" id="originalFile" name="originalImage" class="form-control"(change)="checkFormat($event, isOriginalFileFormatAllowed,false)">
+        <div *ngIf="isFormSubmitted && form.originalFile.errors" class="invalid-feedback">
+          <div *ngIf="form.originalFile.errors.required" >Le fichier est nécessaire.</div>
+        </div>
+        <div class="invalid-feedback" id="originalFileFeedback"></div>
+        <h3>Image modifiée</h3>
+        <input type = "file" formControlName="modifiedFile" accept=".bmp" id="modifiedFile" name="modifiedImage" class="form-control" (change)="checkFormat($event, isModifiedFileFormatAllowed,true) ">
+        <div *ngIf="isFormSubmitted && form.modifiedFile.errors" class="invalid-feedback">
+          <div *ngIf="form.modifiedFile.errors.required" >Le fichier est nécessaire.</div>
+        </div>
+        <div class="invalid-feedback" id="modifiedFileFeedback"></div>
+      </div>
+
+
+      <div class="buttonArea">
+        <div class="form-group">
+          <button [disabled]="loading" class="btn btn-primary">Soumettre</button>
+        </div>
+        <div class="form-group">
+          <button  type="button"  id="button-test" class="btn btn-default" (click)="onNoClick()">Annuler</button>
+        </div>
+      </div>
+    </form>

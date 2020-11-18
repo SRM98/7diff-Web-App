@@ -1,0 +1,22 @@
+<mat-card>
+  <div>
+    <img [src]="imgSrc" alt="7 differences logo">
+  </div>
+  <div>
+    <form (ngSubmit)="onSubmitName()" [formGroup]="nameForm" >
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          required
+          placeholder="Votre nom de Joueur"
+          value=""
+          formControlName="name"        
+          >
+        <mat-error *ngIf="nameForm.invalid">
+          SVP utiliser un nom alpha-numérique de 2-16 caractères.
+        </mat-error>
+      </mat-form-field>
+      <button [disabled]="nameForm.invalid" mat-raised-button type="submit" class = "backgroundColor" >Soumettre</button>
+    </form>
+  </div>
+</mat-card>

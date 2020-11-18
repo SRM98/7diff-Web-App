@@ -1,0 +1,42 @@
+<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+<app-header></app-header>
+<div class = "listOfGames">
+    <h1> Listes des parties </h1> 
+  <div id = "displayList">
+    <div class = "divideView">
+        <h1> Vue simple </h1>
+        <th *ngFor = "let interface of simpleGamesInterface">
+            <div class = "cardGame">
+              <div class = "cardGame-inner">
+                <div class = "cardGame-front">
+                  <div class = "titleGame"> {{interface.game.name}} </div>
+                  <img alt="Image" class = "thumbnailGame" src={{interface.game.thumbnail}}> 
+                </div>
+                <div class = "cardGame-back">
+                  <app-game-detail [game]=interface.game> </app-game-detail>
+                </div>
+              </div>
+            </div>
+            <div class = "buttonOption" routerLink="/{{interface.game.POV}}/{{interface.game.id}}/solo/{{username}}"> Jouer </div>
+            <div id = {{interface.game.id}} class = "buttonOption" (click) = "navigateToGame(interface.game)"> {{interface.playButtonText}} </div>
+        </th>
+    </div>
+    <div class = "divideView">
+        <h1> Vue libre </h1>
+        <th *ngFor = "let interface of freeGamesInterface">
+            <div class = "cardGame">
+              <div class = "cardGame-inner">
+                <div class = "cardGame-front">
+                  <div class = "titleGame"> {{interface.game.name}} </div>
+                  <img alt="Image" class = "thumbnailGame" src={{interface.game.thumbnail}}> 
+                </div>
+                <div class = "cardGame-back">
+                  <app-game-detail [game]=interface.game> </app-game-detail>
+                </div>
+              </div>
+            </div>
+            <div class = "buttonOption" routerLink="/{{interface.game.POV}}/{{interface.game.id}}/solo/{{username}}"> Jouer </div>
+            <div id = {{interface.game.id}} class = "buttonOption" (click) = "navigateToGame(interface.game)"> {{interface.playButtonText}} </div>
+        </th>
+    </div>
+  </div>

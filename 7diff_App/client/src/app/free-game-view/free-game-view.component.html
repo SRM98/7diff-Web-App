@@ -1,0 +1,46 @@
+<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+
+<div id = "gameView">
+
+  <div class = "verticalSection" >
+    <div id = "logo"></div>
+    <div class = "gameTitle" >{{game.name}}</div>
+    <div class = "differenceCount" id = "playerOneDifferenceCount">{{playerOne.name}} : {{playerOne.numDifferencesFound}}</div>
+    <div *ngIf = "arrayPopUps[7]" class = "differenceCount" id = "playerTwoDifferenceCount" >{{playerTwo.name}} : {{playerTwo.numDifferencesFound}}</div>
+    <div class = "timer" id = "gameTimer"> {{chronoService.display}}</div>
+    <div *ngIf= "arrayPopUps[8]" class = "activeCheatMode"> Mode de triche activé </div>
+    <div class = "returnButton" (click)='leaveGame()'> Retour </div>
+    <div class = "textBox" id = "textBox"></div>
+  </div>
+
+
+  <div class = "playSection">
+    <div class = "header">Partie {{gameType}} en {{game.POV}}</div>
+
+    <div #container (click) = "arrayPopUps[5] ? onClick($event) : null" id="freeGameView">
+    </div>
+    <div *ngIf = "arrayPopUps[6]" class="gameCover" id = "sceneCover">
+      <div class = "spinner">
+        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div #popupWin *ngIf="arrayPopUps[0]" class = "popUpGame" id = "gameWin"> Victoire ! Vous allez être envoyé vers le menu principal
+  <div class = "buttonOk" id = "buttonOk" (click)="leaveGame()">Ok</div>
+</div>
+
+<div #popupLose *ngIf="arrayPopUps[1]" class = "popUpGame" id = "gameLose"> Défaite ! Vous allez être envoyé vers le menu principal
+<div class = "buttonOk" id = "buttonOk" (click)="leaveGame()">Ok</div>
+</div>
+<div #popupError *ngIf="arrayPopUps[4]" class = "popUp" id = "errorMessage">ERREUR
+</div>
+<div #popUpLeave *ngIf="arrayPopUps[2]" class = "popUpGame" id = "leaveGame"> Ce jeu a été supprimé! Vous allez être ramenés à la page d'accueil.
+<div class = "buttonOk" id = "buttonOk" (click)="leaveGame()">Ok</div>
+</div> 
+<div #popUpOppHasLeft *ngIf="arrayPopUps[3]" class = "popUpGame" id = "leaveGame"> Votre adversaire a quitté! Vous allez être ramenés à la page d'accueil.
+  <div class = "buttonOk" id = "buttonOk" (click)="leaveGame()">Ok</div>
+</div> 
